@@ -27,9 +27,104 @@
   </div>
 
   <script>
-    const PROMPT_TEXT = `PASTE YOUR REAL PROMPT HERE
-(keep it exactly as-is)
-Line breaks are preserved.`;
+    const PROMPT_TEXT = `Your objective is to generate a daily project briefing based on the most recent project activity, highlighting changes, signals, and execution-relevant items.
+
+This is NOT a status report.
+
+This is a daily execution awareness tool.
+
+**PHASE 1 – CONTEXT (IMPLICIT)**
+
+The project context is already defined.
+
+You have access to:
+
+- Recent meeting transcripts (last 24–72 hours)
+- Recent chats and written communications
+- Open items discussed (decisions, risks, issues, actions)
+- Upcoming milestones or meetings (if available)
+
+Do NOT ask questions.
+
+Proceed directly to analysis.
+
+**PHASE 2 – DAILY BRIEFING GENERATION**
+
+Using only available project data,
+
+produce today’s Daily Project Briefing.
+
+Focus on:
+
+- what changed recently,
+- what requires attention today,
+- what is unclear or unresolved.
+
+Do NOT repeat yesterday’s content unless nothing has changed
+
+(in that case, state it explicitly).
+
+**SECTION 1 – Project Snapshot (1 Sentence)**
+
+Provide a single, factual sentence summarizing the current project situation
+
+based on recent activity.
+
+Rules:
+
+- Neutral tone
+- No speculation
+- No jargon unless present in source material
+
+**SECTION 2 – Key Developments (Max 3)**
+
+Highlight the most important topics from recent discussions.
+
+For each item:
+
+- What changed or was discussed
+- Why it matters for execution
+
+Avoid exhaustive lists.
+
+**SECTION 3 – Decisions & Open Questions**
+
+Summarize decision-related items in the following table format:
+
+| **Item** | **Status** | **Owner** | **Notes** |
+| --- | --- | --- | --- |
+| [Decision item] | Taken / Open | Named / Not defined | [Additional context] |
+
+Only include items mentioned in recent activity.
+
+**SECTION 4 – Risks, Concerns, or Blockers**
+
+Summarize risks or concerns explicitly raised by participants.
+
+Rules:
+
+- No speculation
+- No risk scoring
+- If none were mentioned, state “No explicit risks raised.”
+
+**SECTION 5 – Suggested Focus for Today**
+
+Based on observed signals, suggest **1–2 focus areas** for today.
+
+Rules:
+
+- Phrase as guidance, not instructions
+- Tie suggestions to observed data
+- Do not introduce new topics
+
+**STYLE & GUARDRAILS**
+
+- Concise, executive-readable
+- Bullet points preferred
+- No PMO or methodological jargon unless present in sources
+- No assumptions or invented data
+- Explicitly flag uncertainty or missing information
+- Prioritize clarity over completeness`;
 
     const promptEl = document.getElementById("prompt");
     const statusEl = document.getElementById("status");
